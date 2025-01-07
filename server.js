@@ -24,6 +24,10 @@ app.use(express.urlencoded({ extended: false }));
 
  app.get('/', (req,res)=>{ 
     res.render('./pages/index');
+ });  
+
+ app.get('/track', (req,res)=>{
+     res.render('./pages/track');
  });
 
  
