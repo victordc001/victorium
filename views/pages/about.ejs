@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+ <head>  
+     <%- include('../partials/head.ejs'); %> 
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <%- include('../partials/header.ejs'); %>
+
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row align-items-center">
+                <div style="margin-top:90px;" class="col-lg-6 offset-lg-3 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">About Us</h1>
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">Home</a></li>
+                            <li>About Us</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+    <!-- Start About Area -->
+    <section class="about section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-12">
+                    <div class="image wow fadeInUp" data-wow-delay=".4s">
+                        <img src="assets/images/about/about-image.png" alt="#">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="content wow fadeInUp" data-wow-delay=".7s">
+                        <h4>DECENTRALIZED FINANCIAL SOLUTIONS</h4>
+                        <h2>Welcome to Victorium - Your Gateway to Seamless Crypto Tracking</h2>
+                        <p>Victorium is your trusted platform for tracking cryptocurrency transactions across multiple networks. With a focus on transparency and accuracy, we help users stay informed about their digital asset movements in real time. Join us as we simplify crypto tracking and set the foundation for a smarter decentralized future.</p>
+                           
+                        <div class="list">
+                            <div class="single-list">
+                                <div class="list-icon">
+                                    <i class="lni lni-checkmark"></i>
+                                </div>
+                                <h4>Secure Wallet Integration</h4>
+                                <p>Connect your wallet easily and manage your crypto assets with confidence.</p>
+                            </div>
+                            <div class="single-list">
+                                <div class="list-icon">
+                                    <i class="lni lni-checkmark"></i>
+                                </div>
+                                <h4>Real-Time Transaction Tracking</h4>
+                                <p>Monitor your transactions across multiple networks with instant updates.</p>
+                            </div>
+                            <div class="single-list">
+                                <div class="list-icon">
+                                    <i class="lni lni-checkmark"></i>
+                                </div>
+                                <h4>Multi-Network Support</h4>
+                                <p>Choose from Bitcoin, Ethereum, and Solana networks for seamless transfers.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About Area -->
+  
+
+       <!-- Start Get Started Process Area -->
+<section class="start-process dark section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h3 class="wow zoomIn" data-wow-delay=".2s">Ready to Join Victorium?</h3>
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s">3 Simple Steps to Begin</h2>
+                    <p class="wow fadeInUp" data-wow-delay=".6s">Start your crypto journey with Victorium. Secure your wallet, make transactions, and explore limitless possibilities.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Step 1 -->
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="single-process">
+                    <span class="serial">01</span>
+                    <h3>Connect Your Wallet</h3>
+                    <p>Link your preferred crypto wallet to access Victorium's secure platform.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="single-process">
+                    <span class="serial">02</span>
+                    <h3>Select Your Network</h3>
+                    <p>Choose from Bitcoin, Ethereum, or Solana to start your transactions.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="single-process">
+                    <span class="serial">03</span>
+                    <h3>Track & Manage Transactions</h3>
+                    <p>Stay updated with real-time transaction tracking across multiple networks.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Get Started Process Area -->
+
+  
+
+    <!-- Start Footer Area -->
+     <%- include('../partials/footer.ejs'); %>
+    <!-- ========================= JS here ========================= -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/tiny-slider.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    <script src="assets/js/count-up.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        //========= testimonial 
+        tns({
+            container: '.testimonial-slider',
+            items: 3,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 2,
+                },
+                1170: {
+                    items: 3,
+                }
+            }
+        });
+
+        //====== counter up 
+        var cu = new counterUp({
+            start: 0,
+            duration: 2000,
+            intvalues: true,
+            interval: 100,
+            append: " ",
+        });
+        cu.start();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8fdef49fdd697767',t:'MTczNjIwMDU2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/849bfe45bf45/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8fdef49fdd697767","version":"2024.10.5","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"9a6015d415bb4773a0bff22543062d3b","b":1}' crossorigin="anonymous"></script>
+</body>
+
+
+<!-- Mirrored from preview.uideck.com/items/cryptoland/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 07 Jan 2025 06:56:05 GMT -->
+</html>

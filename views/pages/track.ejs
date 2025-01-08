@@ -1,217 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>  
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />  
+<html class="no-js" lang="zxx"> 
+ 
+<head>
+      <%- include('../partials/head.ejs'); %>  
 
-      <!-- Open Graph Meta Tags (for WhatsApp and social sharing) -->
-    <meta property="og:title" content="Victorium - Blockchain Transaction Tracker">
-    <meta property="og:description" content="Track and analyze blockchain transactions with Victorium. Stay informed about your crypto investments in real time.">
-    <meta property="og:image" content="assets/images/victorium.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://victorium-jia5.onrender.com/track">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Victorium">
+         <style>
+              .gridding{ 
+                  min-width:100px;
+                  display:grid;
+                  margin-top:20px;
+                  margin-bottom:20px;
+                  grid-gap:20px; 
+                  grid-template-columns:repeat(auto, minmax(250px, 3fr)); 
+              }  
 
-    <title>Victorium - Cryptocurrencies transactions fetcher.</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/vfavicon.png" />
+              .gridding button{ 
+                width:100%; 
+                border:none;
+                color:black;
+                font-weight:bold;
+                background-color:lightgrey; 
+                transition:ease-in-out 0.3s ;
+                padding:15px;
+              }   
 
-    <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
-    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-  
+              .gridding button:hover{
+                 background-color:grey; 
+                 color:white;
+              }
+
+         </style>
 </head>
+
 <body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <%- include('../partials/header.ejs'); %>
 
-
-
-
-    
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-icon">
-                <span></span>
-                <span></span>
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
+                    <div style="margin-top:80px" class="breadcrumbs-content">
+                        <h1 class="page-title">Track Your Transactions</h1>
+                        <ul class="breadcrumb-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li>Transaction Tracker</li>
+                        </ul>
+                    </div> 
+                </div>
             </div>
         </div>
     </div>
-    <!-- /End Preloader -->
+    <!-- End Breadcrumbs -->
 
-    <!-- Start Header Area -->
-    <header class="header navbar-area">
+    <!-- Start Account Signup Area -->
+    <div class="account-login section">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="nav-inner">
-                        <!-- Start Navbar -->
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="/">
-                                <img src="assets/images/victorium.png" alt="Logo">
-                            </a>
-                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                                <ul id="nav" class="navbar-nav ms-auto">
-                                    <li class="nav-item">
-                                        <a href="/" class="active" aria-label="Toggle navigation">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/" aria-label="Toggle navigation">About</a>
-                                    </li>
-                                    <li style="display:none" class="nav-item">
-                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                            data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent"
-                                            aria-expanded="false" aria-label="Toggle navigation">Pages</a>
-                                        <ul class="sub-menu collapse" id="submenu-1-1">
-                                            <li class="nav-item"><a href="/">About Us</a></li>
-                                            <li class="nav-item"><a href="/">Sign In</a></li>
-                                            <li class="nav-item"><a href="/">Sign Up</a></li>
-                                            <li class="nav-item"><a href="/">Reset Password</a>
-                                            <li class="nav-item"><a href="/">Mail Success</a></li>
-                                            <li class="nav-item"><a href="/">404 Error</a></li>
-                                        </ul>
-                                    </li>
-                                    <li style="display:none" class="nav-item">
-                                        <a style="display:none" class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                        data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
-                                            aria-expanded="false" aria-label="Toggle navigation">Blog</a>
-                                        <ul class="sub-menu collapse" id="submenu-1-2">
-                                            <li class="nav-item"><a href="blog-grid.html">Blog Grid</a>
-                                            </li>
-                                            <li class="nav-item"><a href="blog-single.html">Blog Single</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/" aria-label="Toggle navigation">Contact</a>
-                                    </li>
-                                </ul>
-                            </div> <!-- navbar collapse -->
-                            <div class="button">
-                                <a href="/track" class="btn">Get started</a>
-                            </div>
-                        </nav>
-                        <!-- End Navbar -->
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </header>
-    <!-- End Header Area --> 
- 
-     <!-- Start Footer Area -->
-     <footer class="footer section">
-        <!-- Start Footer Top -->
-        <div class="footer-top">
-            <div class="container">
-                <div class="inner-content">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <!-- Single Widget -->
-                            <div class="single-footer f-about">
-                                <div class="logo">
-                                    <a href="/">
-                                        <img src="assets/images/victorium.png" alt="#">
-                                    </a>
+            <div class="row">
+                <div class="card col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                        <div class="card-body">
+                            <div class="title">  <br><br>
+                                <h3>Start Tracking Now</h3>
+      <p>Use the form below to start tracking your transactions securely.</p>  
+                            </div>    
+                            <p>Choose a blockchain network</p>
+                            <div class="gridding">
+                                 <button>Bitcoin</button> 
+                                 <button>Etherium</button>
+                                 <button>Solana</button>
+                            </div> 
+                            
+                    <form class="login-form inner-content" method="post">
+                            <div class="input-head"> 
+                                <div class="form-group input-group">
+                                    <label><i class="lni lni-wallet"></i></label>
+                                    <input class="form-control" type="text" placeholder="Enter Wallet Address" required>
                                 </div>
-                                <p>Empowering users to create a transparent and efficient financial future through seamless transaction tracking and innovative investment solutions.</p>
-                                <h4 class="social-title">Follow Us On:</h4>
-                                <ul class="social">
-                                    <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-pinterest"></i></a></li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-youtube"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- End Single Widget -->
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-12">
-                            <!-- Single Widget -->
-                            <div class="single-footer f-link">
-                                <h3>Our Services</h3>
-                                <ul>
-                                    <li><a href="javascript:void(0)">Blockchain Tracking</a></li>
-                                    <li><a href="javascript:void(0)">Transaction Analytics</a></li>
-                                    <li><a href="javascript:void(0)">Crypto Investments</a></li>
-                                    <li><a href="javascript:void(0)">Real-time Insights</a></li>
-                                </ul>
                                 
                             </div>
-                            <!-- End Single Widget -->
+                            <div class="button">
+                                <button class="btn" type="submit">Start Tracking</button>
+                            </div> 
                         </div>
-                        <div class="col-lg-2 col-md-6 col-12">
-                            <!-- Single Widget -->
-                            <div class="single-footer f-link">
-                                <h3>Support</h3>
-                                <ul>
-                                    <li><a href="javascript:void(0)">Pricing</a></li>
-                                    <li><a href="javascript:void(0)">Documentation</a></li>
-                                    <li><a href="javascript:void(0)">Guides</a></li>
-                                    <li><a href="javascript:void(0)">API Status</a></li>
-                                </ul>
-                            </div>
-                            <!-- End Single Widget -->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <!-- Single Widget -->
-                            <div class="single-footer newsletter">
-                                <h3>Subscribe</h3>
-                                <p>Subscribe to our newsletter for the latest updates</p>
-                                <form action="#" method="get" target="_blank" class="newsletter-form">
-                                    <input name="EMAIL" placeholder="Email address" required="required" type="email">
-                                    <div class="button">
-                                        <button class="sub-btn"><i class="lni lni-envelope"></i>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- End Single Widget -->
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <!--/ End Footer Top -->
-        <!-- Start Copyright Area -->
-        <div class="copyright-area">
-            <div class="container">
-                <div class="inner-content">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <p class="copyright-text">© 2023 Victorium - All Rights Reserved</p>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <p class="copyright-owner">Designed and Developed by <a href="https://victoremmyportfolio.onrender.com/"
-                                    rel="nofollow" target="_blank">Vicotech</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Copyright Area -->
-    </footer>
-    <!--/ End Footer Area -->
+    </div>
+    <!-- End Account Signup Area -->
 
-    <!-- ========================= scroll-top ========================= -->
-    <a href="#" class="scroll-top">
-        <i class="lni lni-chevron-up"></i>
-    </a>
-    
-
+    <!-- Start Footer Area -->   <%- include('../partials/footer.ejs'); %>
     <!-- ========================= JS here ========================= -->
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
@@ -219,110 +104,8 @@
     <script src="assets/js/glightbox.min.js"></script>
     <script src="assets/js/count-up.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        //========= Road Map 
-        tns({
-            container: '.road-map-slider',
-            items: 1,
-            slideBy: 'page',
-            autoplay: false,
-            mouseDrag: true,
-            gutter: 0,
-            nav: true,
-            controls: false,
-            responsive: {
-                0: {
-                    items: 2,
-                },
-                540: {
-                    items: 3,
-                },
-                768: {
-                    items: 4,
-                },
-                992: {
-                    items: 4,
-                },
-                1170: {
-                    items: 6,
-                }
-            }
-        });
-
-        //========= testimonial 
-        tns({
-            container: '.testimonial-slider',
-            items: 3,
-            slideBy: 'page',
-            autoplay: false,
-            mouseDrag: true,
-            gutter: 0,
-            nav: true,
-            controls: false,
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                540: {
-                    items: 1,
-                },
-                768: {
-                    items: 2,
-                },
-                992: {
-                    items: 2,
-                },
-                1170: {
-                    items: 3,
-                }
-            }
-        });
-
-        //====== counter up 
-        var cu = new counterUp({
-            start: 0,
-            duration: 2000,
-            intvalues: true,
-            interval: 100,
-            append: " ",
-        });
-        cu.start();
-
-        //========= glightbox
-        GLightbox({
-            'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
-            'type': 'video',
-            'source': 'youtube', //vimeo, youtube or local
-            'width': 900,
-            'autoplayVideos': true,
-        });
-
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8fdef485de549503',t:'MTczNjIwMDU1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/849bfe45bf45/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8fdef485de549503","version":"2024.10.5","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"9a6015d415bb4773a0bff22543062d3b","b":1}' crossorigin="anonymous"></script>
-
-    <script>
-        document.getElementById('btcButton').addEventListener('click', function() {
-            alert('Bitcoin network selected!');
-        });
-        document.getElementById('ethButton').addEventListener('click', function() {
-            alert('Ethereum network selected!');
-        });
-        document.getElementById('solButton').addEventListener('click', function() {
-            alert('Solana network selected!');
-        });
-        document.getElementById('trackButton').addEventListener('click', function() {
-            const transactionId = document.getElementById('transactionInput').value;
-            if (transactionId) {
-                const history = document.getElementById('history');
-                const newItem = document.createElement('div');
-                newItem.className = 'history-item';
-                newItem.innerText = `Tracked: ${transactionId}`;
-                history.appendChild(newItem);
-            } else {
-                alert('Please enter a transaction ID or wallet address.');
-            }
-        });
-    </script> 
-    
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8fdef4a349897767',t:'MTczNjIwMDU2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/849bfe45bf45/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8fdef4a349897767","version":"2024.10.5","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"9a6015d415bb4773a0bff22543062d3b","b":1}' crossorigin="anonymous"></script>
 </body>
+
+
 </html>

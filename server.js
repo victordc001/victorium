@@ -28,7 +28,11 @@ app.use(express.urlencoded({ extended: false }));
 
  app.get('/track', (req,res)=>{
      res.render('./pages/track');
- });
+ }); 
+
+ app.get('/about', (req,res)=>{
+    res.render('./pages/about');
+});
 
  
 app.use(express.static(path.join(__dirname, 'public')));
