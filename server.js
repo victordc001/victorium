@@ -34,7 +34,10 @@ app.use(express.urlencoded({ extended: false }));
     res.render('./pages/about');
 });
 
- 
+app.get('/contact', (req,res)=>{
+    res.render('./pages/contact');
+});
+    
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Start the server
