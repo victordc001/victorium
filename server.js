@@ -4,6 +4,7 @@ import mongodb from 'mongodb';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import axios from 'axios';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -36,6 +37,31 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get('/contact', (req,res)=>{
     res.render('./pages/contact');
+}); 
+
+app.post('/tracking', async (req,res)=>{
+     const trackparams = req.body;
+     const address = trackparams.address;
+     const network = trackparams.network;  
+
+     console.log(`Fetching data for ${address} from ${network} network`); 
+
+     try{  
+        if(network === 1) {
+             //that means the user chose bitcoin  
+         const response = await axios.get('https://api.blockcypher.com/v1/btc/main/addrs/1DEP8i3QJCsomS4BSMY2RpU1upv62aGvhD/full?before=300000');
+         console.log('Successful'); 
+         console.log(response); 
+         res.status(200).json({msg : 'tracked'});
+        }     
+         
+     } 
+
+     catch(err) {
+          const error = await err.response.data;
+          console.log(err); 
+          res.status(500).send('OOPS!!!!, An error occured . Please reverify the address entered or check your connection');
+     }
 });
     
 app.use(express.static(path.join(__dirname, 'public')));

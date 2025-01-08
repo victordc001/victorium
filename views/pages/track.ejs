@@ -4,7 +4,25 @@
 <head>
       <%- include('../partials/head.ejs'); %>  
 
-         <style> 
+         <style>  
+
+         #trxres{
+              display:none;
+         }
+ 
+
+         #trackbtn {
+  background: linear-gradient(120deg, #3E80FF, #75A7FF, #3E80FF);
+  background-size: 200% 100%;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  animation: loadingAnimation 3s linear infinite;
+  transition: all 0.3s ease;
+}
 
 .transaction-history {
     background-color: #1F3A66;
@@ -79,8 +97,18 @@
               .gridding button:hover{
                  background-color:grey; 
                  color:white;
-              }
+              } 
+ 
+@keyframes loadingAnimation {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
 
+        
          </style>
 </head>
 
@@ -124,21 +152,21 @@
                             </div>    
                             <p>Choose a blockchain network</p>
                             <div class="gridding">
-                                 <button>Bitcoin</button> 
-                                 <button>Etherium</button>
-                                 <button>Solana</button>
+                                 <button id="bitcoin">Bitcoin</button> 
+                                 <button id="ethereum">Ethereum</button>
+                                 <button id="solana">Solana</button>
                             </div> 
                             
-                    <form class="login-form inner-content" method="post">
+                    <form class="login-form inner-content" id="starttrack">
                             <div class="input-head"> 
                                 <div class="form-group input-group">
                                     <label><i class="lni lni-wallet"></i></label>
-                                    <input class="form-control" type="text" placeholder="Enter Wallet Address" required>
+                                    <input id="trackinp" class="form-control" type="text" placeholder="Enter Wallet Address" required>
                                 </div>
                                 
                             </div>
                             <div class="button">
-                                <button class="btn" type="submit">Start Tracking</button>
+                                <button id="trackbtn" class="btn" type="submit">Start Tracking</button>
                             </div>   
                             <br>
                             <p style="text-align:center">Scroll down to check the result</p>
@@ -151,42 +179,9 @@
     <!-- End track area -->  
 
    <!-- Transaction History Section -->
-<div class="transaction-history">
+<div id="trxres" class="transaction-history">
     <h3>Transaction History</h3>
-    <div class="history-list">
-        <!-- Single Transaction -->
-        <div class="history-item">
-            <p><strong>Wallet Address:</strong> 0x123...abcd</p>
-            <p><strong>Network:</strong> Bitcoin</p>
-            <p><strong>Timestamp:</strong> 2025-01-07 10:23 AM</p>
-            <p><strong>Status:</strong> Completed</p>
-            <p><strong>Amount:</strong> 0.05 BTC</p>
-        </div>
-        <!-- Single Transaction -->
-        <div class="history-item">
-            <p><strong>Wallet Address:</strong> 0x456...efgh</p>
-            <p><strong>Network:</strong> Ethereum</p>
-            <p><strong>Timestamp:</strong> 2025-01-06 9:15 PM</p>
-            <p><strong>Status:</strong> Pending</p>
-            <p><strong>Amount:</strong> 1.2 ETH</p>
-        </div>
-        <!-- Single Transaction -->
-        <div class="history-item">
-            <p><strong>Wallet Address:</strong> 0x789...ijkl</p>
-            <p><strong>Network:</strong> Solana</p>
-            <p><strong>Timestamp:</strong> 2025-01-05 2:45 PM</p>
-            <p><strong>Status:</strong> Failed</p>
-            <p><strong>Amount:</strong> 15 SOL</p>
-        </div>
-        <!-- Single Transaction -->
-        <div class="history-item">
-            <p><strong>Wallet Address:</strong> 0xabc...mnop</p>
-            <p><strong>Network:</strong> Bitcoin</p>
-            <p><strong>Timestamp:</strong> 2025-01-04 5:30 AM</p>
-            <p><strong>Status:</strong> Completed</p>
-            <p><strong>Amount:</strong> 0.15 BTC</p>
-        </div>
-        <!-- Single Transaction -->
+    <div class="history-list">   
         <div class="history-item">
             <p><strong>Wallet Address:</strong> 0xdef...qrst</p>
             <p><strong>Network:</strong> Ethereum</p>
@@ -207,6 +202,99 @@
     <script src="assets/js/count-up.min.js"></script>
     <script src="assets/js/main.js"></script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8fdef4a349897767',t:'MTczNjIwMDU2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/849bfe45bf45/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8fdef4a349897767","version":"2024.10.5","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"9a6015d415bb4773a0bff22543062d3b","b":1}' crossorigin="anonymous"></script>
+   
+  <script> 
+
+
+
+       var bitcoin = document.getElementById('bitcoin');
+       var ethereum = document.getElementById('ethereum');
+       var solana = document.getElementById('solana');   
+   
+       let choice = 0;  
+
+       bitcoin.addEventListener('click', (b)=>{
+             b.target.style.backgroundColor = 'grey';   
+             ethereum.style.backgroundColor = 'lightgrey'; 
+             solana.style.backgroundColor = 'lightgrey'; 
+             choice = 1; 
+       }); 
+
+       ethereum.addEventListener('click', (e)=>{
+             e.target.style.backgroundColor = 'grey';   
+             bitcoin.style.backgroundColor = 'lightgrey'; 
+             solana.style.backgroundColor = 'lightgrey'; 
+             choice = 2;
+       });
+
+       solana.addEventListener('click', (s)=>{
+             s.target.style.backgroundColor = 'grey';  
+             ethereum.style.backgroundColor = 'lightgrey'; 
+             bitcoin.style.backgroundColor = 'lightgrey'; 
+             choice = 3;
+       });    
+        
+
+       var starttrack = document.getElementById('starttrack');   
+       starttrack.addEventListener('submit', async (e)=>{       
+        e.preventDefault();  
+        if(choice == 0) {
+             alert('You must choose a network');
+        }  else {
+        var trackinp = document.getElementById('trackinp');  
+             var trackbtn = document.getElementById('trackbtn'); 
+             trackbtn.innerHTML = 'Processing'; 
+             trackbtn.style.animationName = 'loadingAnimation';  
+             trackbtn.style.animationDuration = '0.3s';
+             trackbtn.style.animationIterationCount = 'infinite';    
+             trackbtn.disabled = true; 
+             trackbtn.style.opacity = 0.4;
+
+             const data = {
+                  address : trackinp.value,
+                  network : choice,
+             };
+               
+
+             try{
+             const response = await fetch('/tracking', {
+                  method : 'post',
+                  body : JSON.stringify(data),
+                  headers : {
+                     'Content-Type' : 'application/json',
+                     Accept : 'application/json',
+                  },
+             });  
+
+             if(!response.ok){
+                 throw response;
+             }
+             setTimeout(()=>{trackbtn.innerHTML = 'Collecting data';}, 3000); 
+             setTimeout(()=>{trackbtn.innerHTML = 'Arranging data';}, 6000); 
+             setTimeout(()=>{trackbtn.innerHTML = 'Data fetched';}, 9000);
+             setTimeout(
+                ()=>{alert('Data fetched successfully, scroll down for the result'); 
+             trackbtn.style.animation = 'none';  
+             trackbtn.disabled = false;  
+             trackbtn.style.opacity = 2.4; 
+             trackbtn.innerHTML = 'Start Tracking';
+            }, 11000
+        );
+            }  
+            
+            catch(err) {   
+                trackbtn.style.animation = 'none';
+                trackbtn.style.opacity = 2.4;
+                trackbtn.innerHTML = 'Start Tracking'; 
+                trackbtn.disabled = false;
+                 const error = await err.text();
+                 alert(error);   
+            }  
+        }
+       });
+              
+  </script>
+
 </body>
 
 
